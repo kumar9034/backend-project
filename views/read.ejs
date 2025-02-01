@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="w-full h-full bg-zinc-800 text-white p-15 overflow-none  ">
+        <a href="/" class="text-xl text-zinc-600">🤛Go To Home</a>
+        <h1 class="text-3xl ml-4 mb-5">Create Users </h1>
+        <div class="flex flex-wrap gap-5">
+            <% if(user.length>0){ %>
+                <% user.forEach(function(user){%>
+                 <div class="h-72 w-72 bg-zinc-600 rounded ">
+                     <div class=" h-52 w-full p-1 rounded overflow-hiden">
+                         <img class="h-full w-full object-cover rounded" src="<%= user.image %>" alt="">
+                     </div>
+                     <div class="ml-3 mt-2">
+                         <h1 class=" text-sm font-bold"><%= user.name %></h1>
+                         <h1 class=" text-sm font-bold"><%= user.email %></h1>
+                     </div>
+                     <div class="flex justify-between items-center px-3 font-semibold">
+                         <a href="/edit/<%= user._id %>" class="text-zinc-400">edit</a>
+                         <a href="/delete/<%= user._id %>" class="text-red-700">delete</a>
+                     </div>
+                 </div>
+               <% }) %>
+            <%} else{ %>
+                <h1 class="text-3xl ml-4 mb-5 text-zinc-600">No Users create </h1>
+
+           <% }%>       
+          
+            
+            
+
+
+
+        </div>
+</body>
+
+</html>
